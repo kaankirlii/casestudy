@@ -45,7 +45,6 @@ namespace CaseSol
             for (int i = 0; i < a; i++){
                 Console.Write(numbers[i] + " ");
             }
-            
         }
 
         //Main part
