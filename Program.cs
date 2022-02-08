@@ -4,7 +4,8 @@ namespace CaseSol
 {
     class Program
     {
-        public static void SortArray(int[] arr_numbers,int a,int b)
+        //SortArray method part
+        public static void SortArray(int[] numbers,int a,int b)
         {
             //create new length
             int new_length = a-b;
@@ -14,12 +15,12 @@ namespace CaseSol
 
             //create first array
             for(int i=0;i<b;i++){
-                first_array[i] = arr_numbers[i];
+                first_array[i] = numbers[i];
             }
 
             //create second array
             for (int i = b; i < a; i++){
-                second_array[i-b] = arr_numbers[i];
+                second_array[i-b] = numbers[i];
             }
 
             //sort from index b-1 to index 0
@@ -29,30 +30,44 @@ namespace CaseSol
             Array.Sort(second_array, a-b,0);
 
             //combine two new arrays into one array 
+            //locate numbers according to b number
             for (int i = 0; i < a; i++)
             {
                 if (i < b){
-                    arr_numbers[i] = first_array[i];
+                    numbers[i] = first_array[i];
                 }else{
-                    arr_numbers[i] = second_array[new_length - 1];
+                    numbers[i] = second_array[new_length - 1];
                     new_length--;
                 }
             }
 
             // print the new combined array
             for (int i = 0; i < a; i++){
-                Console.Write(arr_numbers[i] + " ");
+                Console.Write(numbers[i] + " ");
             }
             
         }
 
+        //Main part
         public static void Main(string[] args)
         {
-            int[] arr_numbers = { 4, 13, 8, 9, 7, 1, 6 };
-            //int[] arr_numbers = { 16, 23, 7, 11, 3, 14};
-            int a = arr_numbers.Length;
+            //define "numbers" integer array
+            int[] numbers = { 4, 13, 8, 9, 7, 1, 6 };
+            
+            //show input array
+            Console.Write("Input: [");
+            foreach (int number in numbers){
+                Console.Write(number+" ");
+            }
+            Console.Write("] \n");
+            //define length and first b number
+            int a = numbers.Length;
             int b = 3;
-            SortArray(arr_numbers, a, b);
+            //show output array
+            Console.Write("Output: [");
+            //sort "numbers" array and print
+            SortArray(numbers, a, b);
+            Console.Write("]");
         }
     }
 }
